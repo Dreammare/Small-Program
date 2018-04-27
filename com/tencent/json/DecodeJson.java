@@ -48,6 +48,20 @@ public class DecodeJson {
      */    
     public static byte[] base64Decode(String base64Code) throws Exception{    
         return base64Code==null ? null : new BASE64Decoder().decodeBuffer(base64Code);    
-    }    
+    }
+    
+   public final static String getFromBASE64(String s) {
+	   if (s == null) {
+	   	return null;
+	   }
+	   
+	   BASE64Decoder decoder = new BASE64Decoder();
+	   try {
+		 byte[] b = decoder.decodeBuffer(s);
+		 return new String(b);
+	   } catch (IOException e) {
+	   	return null;
+	   }
+   }
 
 }
